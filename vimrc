@@ -12,6 +12,24 @@ call pathogen#runtime_append_all_bundles()
 "This must be first, because it changes other options as a side effect.
 set nocompatible
 
+"Set mapleader
+let mapleader = ","
+let g:mapleader = ","
+let localleader = '\'
+
+"Make semicolon work as colon so you don't have to push shift
+"fo common actions
+map ; :
+"Two semicolons == semicolon
+noremap ;; ;
+
+" mapping to search with Ack
+nnoremap <leader>a :Ack
+
+" set timeouts for mappings and Esc
+set timeoutlen=3000
+set ttimeoutlen=50
+
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -226,8 +244,8 @@ if has("gui_running")
     "tell the term has 256 colors
     set t_Co=256
 
-    "colorscheme railscasts
-    colorscheme twilight
+    colorscheme railscasts
+    "colorscheme twilight
     set guitablabel=%M%t
     set lines=40
     set columns=115
@@ -268,8 +286,11 @@ endif
 " else in your ~/.vimrc file, such as:
 " nmap <silent> <Leader>q <Plug>PeepOpen
 
-silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
-nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
+"silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
+"nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
+map <leader>dc :NERDTreeClose<cr>
+map <leader>do :NERDTree<cr>
+map <leader>df :NERDTreeFind<cr>
 
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
