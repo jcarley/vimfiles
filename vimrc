@@ -24,7 +24,7 @@ map ; :
 noremap ;; ;
 
 " mapping to search with Ack
-nnoremap <leader>a :Ack
+"nnoremap <leader>a :Ack
 
 " set timeouts for mappings and Esc
 set timeoutlen=3000
